@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchBar @searchChange="onSearchChange"></SearchBar>
-    <VideoList></VideoList>
+    <VideoList v-bind:videos="videoResults"></VideoList>
   </div>
 </template>
 
@@ -10,15 +10,16 @@ import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
 import axios from "axios";
 const YOUTUBE_KEY = process.env.VUE_APP_YOUTUBE_KEY;
+
 export default {
   name: "App",
   components: {
     SearchBar,
     VideoList,
   },
-  data: function () {
+  data() {
     return {
-      searchResults: {},
+      videoResults: [],
     };
   },
   methods: {
@@ -34,7 +35,7 @@ export default {
           },
         })
         .then((response) => {
-          this.searchResults = response.data.items;
+          this.videoResults = response.data.items;
         });
     },
   },
