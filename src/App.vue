@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <SearchBar @searchChange="onSearchChange"></SearchBar>
-    <VideoList v-bind:videos="videoResults"></VideoList>
+    <VideoList v-bind:videos="videoResults" @videoFocus="videoFocus"></VideoList>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       videoResults: [],
+      currentVideo: Object,
     };
   },
   methods: {
@@ -37,6 +38,9 @@ export default {
         .then((response) => {
           this.videoResults = response.data.items;
         });
+    },
+    videoFocus(video) {
+      this.currentVideo = video;
     },
   },
 };

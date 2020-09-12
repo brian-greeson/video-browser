@@ -1,8 +1,8 @@
 <template>
-  <a :href="videoUrl" class="list-group-item list-group-item-action">
-    <img class="img-thumbnail" :src="thumbnailUrl" />
-    {{ videoTitle }}
-  </a>
+  <li class="list-group-item media" @click="onVideoSelect">
+    <img class="mr-3" :src="thumbnailUrl" />
+    <div class="media-body">{{ videoTitle }}</div>
+  </li>
 </template>
 
 <script>
@@ -13,13 +13,26 @@ export default {
     thumbnailUrl() {
       return this.video.snippet.thumbnails.default.url;
     },
-    videoUrl() {
-      return "www.youtube.com/" + this.video.id.videoId;
-    },
     videoTitle() {
       return this.video.snippet.title;
     },
   },
+  methods: {
+    onVideoSelect() {
+      this.$emit("videoFocus", this.video);
+    },
+  },
 };
 </script>
+
+<style scoped>
+li {
+  display: flex;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: lightgray;
+}
+</style>
 
