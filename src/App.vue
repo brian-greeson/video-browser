@@ -1,7 +1,13 @@
 <template>
   <div class="container">
     <div class="jumbotron">
-      <h1 class="display-3">ZenTube</h1>
+      <div class="row">
+        <img
+          class="align-self-center mr-3 logo-icon"
+          src="https://github.com/brian-greeson/video-browser/raw/master/public/yt_icon_rgb.png"
+        />
+        <h1 class="display-3">ZenTube</h1>
+      </div>
       <p class="lead">Minimalist Youtube Search</p>
       <hr class="my-7" />
       <p class="lead">
@@ -63,3 +69,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.logo-icon {
+  height: 50px;
+  width: auto;
+}
+</style>
