@@ -1,24 +1,6 @@
-# video-browser
+# ZenTube 
 
-## Project setup
-```
-yarn install
-```
+A short demo application created in Vue for practice
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+[live version](https://brian-greeson.github.io/video-browser/) 
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
