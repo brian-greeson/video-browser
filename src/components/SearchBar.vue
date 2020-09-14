@@ -1,6 +1,7 @@
 <template>
   <div>
-    <input @input="onInput" />
+    <label for="search-bar">Query + Enter</label>
+    <input class="ml-3" id="search-bar" @keyup.enter="onInput" />
   </div>
 </template>
 
@@ -22,7 +23,7 @@ input {
 
 div {
   text-align: center;
-  margin: 20px;
+  margin: 10px;
 }
 </style>>
 

@@ -1,13 +1,30 @@
 <template>
   <div class="container">
-    <SearchBar @searchChange="onSearchChange"></SearchBar>
-    <VideoList v-bind:videos="videoResults" @videoFocus="videoFocus"></VideoList>
+    <div class="jumbotron">
+      <h1 class="display-3">ZenTube</h1>
+      <p class="lead">Minimalist Youtube Search</p>
+      <hr class="my-7" />
+      <p class="lead">
+        <SearchBar @searchChange="onSearchChange"></SearchBar>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-8">
+        <VideoDetail :video="currentVideo"></VideoDetail>
+      </div>
+      <div class="col-4">
+        <VideoList v-bind:videos="videoResults" @videoFocus="videoFocus"></VideoList>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoDetail from "./components/VideoDetail";
+
 import axios from "axios";
 const YOUTUBE_KEY = process.env.VUE_APP_YOUTUBE_KEY;
 
@@ -16,6 +33,7 @@ export default {
   components: {
     SearchBar,
     VideoList,
+    VideoDetail,
   },
   data() {
     return {
